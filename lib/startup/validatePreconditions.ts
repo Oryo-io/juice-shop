@@ -16,7 +16,7 @@ import portscanner from 'portscanner'
 import checkInternetConnected from 'check-internet-connected'
 
 const domainDependencies = {
-  'https://www.alchemy.com/': ['"Mint the Honeypot" challenge', '"Wallet Depletion" challenge']
+  'https://www.google.com/': ['"Mint the Honeypot" challenge', '"Wallet Depletion" challenge']
 }
 
 const validatePreconditions = async ({ exitOnFailure = true } = {}) => {
@@ -34,7 +34,7 @@ const validatePreconditions = async ({ exitOnFailure = true } = {}) => {
     checkIfRequiredFileExists('frontend/dist/frontend/runtime.js'),
     checkIfRequiredFileExists('frontend/dist/frontend/vendor.js'),
     checkIfPortIsAvailable(process.env.PORT ?? config.get<number>('server.port')),
-    checkIfDomainReachable('https://www.alchemy.com/')
+    checkIfDomainReachable('https://www.google.com/')
   ])).every(condition => condition)
 
   if ((!success || !asyncConditions) && exitOnFailure) {
