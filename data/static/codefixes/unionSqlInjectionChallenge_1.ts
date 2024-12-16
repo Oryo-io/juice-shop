@@ -3,6 +3,7 @@ module.exports = function searchProducts () {
     let criteria: any = req.query.q === 'undefined' ? '' : req.query.q ?? ''
     criteria = (criteria.length <= 200) ? criteria : criteria.substring(0, 200)
     criteria.replace(/"|'|;|and|or/i, "")
+    console.log(`## (data/static/codefixes/unionSqlInjectionChallenge_1.ts, line 6) The search criteria is: ${criteria}`)
     models.sequelize.query(`SELECT * FROM Products WHERE ((name LIKE '%${criteria}%' OR description LIKE '%${criteria}%') AND deletedAt IS NULL) ORDER BY name`)
       .then(([products]: any) => {
         const dataString = JSON.stringify(products)
