@@ -7,9 +7,8 @@ import * as models from '../models/index'
 import { type Request, type Response, type NextFunction } from 'express'
 import { UserModel } from '../models/user'
 import { challenges } from '../data/datacache'
-
+import logger from '../lib/logger'
 import * as utils from '../lib/utils'
-import logger from 'lib/logger'
 const challengeUtils = require('../lib/challengeUtils')
 
 class ErrorWithParent extends Error {
